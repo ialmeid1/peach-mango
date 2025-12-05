@@ -23,6 +23,7 @@
             border-radius: 15px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             border: 2px solid #ffb366;
+            position: relative;
         }
         .ascii-art {
             font-size: 14px;
@@ -56,10 +57,34 @@
             font-size: 12px;
             border-top: 1px solid #ffb366;
         }
+        .brian-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: green;
+            color: white;
+            padding: 15px 30px;
+            font-family: 'Lucida Blackletter', 'Old English Text MT', 'Blackadder ITC', serif;
+            font-size: 20px;
+            font-weight: bold;
+            border: 3px solid darkgreen;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+        .brian-button:hover {
+            background-color: darkgreen;
+            transform: translate(-50%, -50%) scale(1.05);
+        }
     </style>
 </head>
 <body>
     <div class="peach-container">
+        <a href="hi-brian.html" class="brian-button">Hi Brian</a>
         <div class="ascii-art">        @@@@@@@@@@
       @@@@@@@@@@@@@@
     @@@@@@@@@@@@@@@@@@
