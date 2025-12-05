@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hi Brian - Tetris Pieces</title>
+    <style>
+        body {
+            background-color: #1a1a2e;
+            font-family: 'Courier New', monospace;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            text-align: center;
+            background-color: #0f3460;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+            border: 3px solid #16213e;
+        }
+        h1 {
+            color: #00ff00;
+            font-family: 'Lucida Blackletter', 'Old English Text MT', 'Blackadder ITC', serif;
+            font-size: 48px;
+            margin-bottom: 30px;
+            text-shadow: 3px 3px 6px rgba(0,255,0,0.3);
+        }
+        .tetris-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        .tetris-piece {
+            display: grid;
+            gap: 2px;
+            padding: 10px;
+            background-color: #16213e;
+            border-radius: 8px;
+        }
+        .block {
+            width: 30px;
+            height: 30px;
+            border: 2px solid rgba(0,0,0,0.3);
+            box-shadow: inset 2px 2px 4px rgba(255,255,255,0.3),
+                        inset -2px -2px 4px rgba(0,0,0,0.3);
+        }
+        .empty {
+            width: 30px;
+            height: 30px;
+            background-color: transparent;
+        }
+        /* I-piece (cyan) */
+        .i-piece {
+            grid-template-columns: repeat(4, 30px);
+        }
+        .i-piece .block {
+            background-color: #00ffff;
+        }
+        /* L-piece (orange) */
+        .l-piece {
+            grid-template-columns: repeat(3, 30px);
+        }
+        .l-piece .block {
+            background-color: #ff8800;
+        }
+        /* T-piece (purple) */
+        .t-piece {
+            grid-template-columns: repeat(3, 30px);
+        }
+        .t-piece .block {
+            background-color: #aa00ff;
+        }
+        .piece-label {
+            color: #ffffff;
+            font-size: 16px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .piece-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .back-button {
+            margin-top: 30px;
+            background-color: green;
+            color: white;
+            padding: 12px 25px;
+            font-family: 'Lucida Blackletter', 'Old English Text MT', 'Blackadder ITC', serif;
+            font-size: 18px;
+            border: 3px solid darkgreen;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: darkgreen;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hi Brian!</h1>
+
+        <div class="tetris-container">
+            <!-- I-Piece -->
+            <div class="piece-wrapper">
+                <div class="tetris-piece i-piece">
+                    <div class="block"></div>
+                    <div class="block"></div>
+                    <div class="block"></div>
+                    <div class="block"></div>
+                </div>
+                <div class="piece-label">I-Piece</div>
+            </div>
+
+            <!-- L-Piece -->
+            <div class="piece-wrapper">
+                <div class="tetris-piece l-piece">
+                    <div class="block"></div>
+                    <div class="empty"></div>
+                    <div class="empty"></div>
+                    <div class="block"></div>
+                    <div class="empty"></div>
+                    <div class="empty"></div>
+                    <div class="block"></div>
+                    <div class="block"></div>
+                    <div class="block"></div>
+                </div>
+                <div class="piece-label">L-Piece</div>
+            </div>
+
+            <!-- T-Piece -->
+            <div class="piece-wrapper">
+                <div class="tetris-piece t-piece">
+                    <div class="block"></div>
+                    <div class="block"></div>
+                    <div class="block"></div>
+                    <div class="empty"></div>
+                    <div class="block"></div>
+                    <div class="empty"></div>
+                </div>
+                <div class="piece-label">T-Piece</div>
+            </div>
+        </div>
+
+        <a href="index.html" class="back-button">Back to Peaches</a>
+    </div>
+</body>
+</html>
