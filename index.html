@@ -5,115 +5,328 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hey Peaches</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             background-color: #fdf5e6;
             font-family: 'Courier New', monospace;
+            min-height: 100vh;
+            padding: 20px;
+            padding-bottom: 80px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Three Column Section */
+        .three-column-section {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border: 2px solid #ffb366;
+            margin-bottom: 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        /* Column 1 - Buttons */
+        .button-column {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
+            gap: 15px;
         }
-        .peach-container {
+
+        .user-button {
+            padding: 15px 30px;
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            font-weight: bold;
+            border: 3px solid;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
             text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        .hi-isa {
+            background-color: #ff6b9d;
+            color: white;
+            border-color: #cc5678;
+        }
+
+        .hi-isa:hover {
+            background-color: #cc5678;
+            transform: scale(1.05);
+        }
+
+        .hi-brian {
+            background-color: green;
+            color: white;
+            border-color: darkgreen;
+        }
+
+        .hi-brian:hover {
+            background-color: darkgreen;
+            transform: scale(1.05);
+        }
+
+        .guest-button {
+            background-color: #ffb366;
+            color: white;
+            border-color: #ff8800;
+        }
+
+        .guest-button:hover {
+            background-color: #ff8800;
+            transform: scale(1.05);
+        }
+
+        /* Column 2 - ASCII Peach */
+        .peach-column {
+            text-align: center;
+        }
+
+        .ascii-art {
+            font-size: 12px;
+            line-height: 1.1;
+            color: #ff6b35;
+            white-space: pre;
+            margin-bottom: 10px;
+        }
+
+        .peach-caption {
+            font-size: 20px;
+            color: #ff6b35;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* Column 3 - Web Form Links */
+        .links-column {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-link {
+            padding: 15px 30px;
+            background-color: #4a90e2;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            border: 3px solid #357abd;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        .form-link:hover {
+            background-color: #357abd;
+            transform: scale(1.05);
+        }
+
+        /* Featured Articles Section */
+        .featured-section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            color: #ff6b35;
+            font-weight: bold;
+            margin-bottom: 25px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .article-card {
             background-color: white;
             padding: 30px;
             border-radius: 15px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             border: 2px solid #ffb366;
-            position: relative;
+            margin-bottom: 25px;
+            transition: all 0.3s ease;
         }
-        .ascii-art {
-            font-size: 14px;
-            line-height: 1.1;
-            color: #ff6b35;
-            white-space: pre;
-            margin: 20px 0;
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
         }
-        .caption {
+
+        .article-title {
             font-size: 24px;
             color: #ff6b35;
             font-weight: bold;
-            margin-top: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
         }
-        .subtitle {
+
+        .article-description {
             font-size: 14px;
             color: #666;
-            margin-top: 10px;
-            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 15px;
         }
+
+        .article-link {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: #ff6b35;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .article-link:hover {
+            background-color: #ff5520;
+            transform: scale(1.05);
+        }
+
+        /* Footer */
         footer {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
             text-align: center;
-            padding: 15px;
-            background-color: rgba(255, 179, 102, 0.1);
-            color: #666;
-            font-size: 12px;
-            border-top: 1px solid #ffb366;
-        }
-        .brian-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: green;
-            color: white;
-            padding: 15px 30px;
-            font-family: 'Lucida Blackletter', 'Old English Text MT', 'Blackadder ITC', serif;
-            font-size: 20px;
+            padding: 20px;
+            background-color: rgba(255, 179, 102, 0.9);
+            color: #333;
+            font-size: 14px;
             font-weight: bold;
-            border: 3px solid darkgreen;
-            border-radius: 8px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
+            border-top: 2px solid #ff6b35;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
         }
-        .brian-button:hover {
-            background-color: darkgreen;
-            transform: translate(-50%, -50%) scale(1.05);
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .three-column-section {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .ascii-art {
+                font-size: 10px;
+            }
+
+            .section-title {
+                font-size: 22px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+                padding-bottom: 80px;
+            }
+
+            .three-column-section {
+                padding: 20px;
+            }
+
+            .article-card {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="peach-container">
-        <a href="hi-brian.html" class="brian-button">Hi Brian</a>
-        <div class="ascii-art">        @@@@@@@@@@
-      @@@@@@@@@@@@@@
-    @@@@@@@@@@@@@@@@@@
-   @@@@@@@@@@@@@@@@@@@@
-  @@@@@@@@@@@@@@@@@@@@@@
-  @@@@@@@@@@@@@@@@@@@@@@
- @@@@@@@@@@@@@@@@@@@@@@@@
- @@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@
-@@@@@@@@@@@@@@@@@@@@@@@@@@
- @@@@@@@@@@@@@@@@@@@@@@@@
- @@@@@@@@@@@@@@@@@@@@@@@@
-  @@@@@@@@@@@@@@@@@@@@@@
-  @@@@@@@@@@@@@@@@@@@@@@
-   @@@@@@@@@@@@@@@@@@@@
-    @@@@@@@@@@@@@@@@@@
-     @@@@@@@@@@@@@@@@
-      @@@@@@@@@@@@@@
-        @@@@@@@@@@
-         @@@@@@@@
-          @@@@@@
-           @@@@
-            @@</div>
-        <div class="caption">hey peaches</div>
-        <div class="subtitle">ASCII art peach 🍑</div>
+    <div class="container">
+        <!-- Three Column Section -->
+        <div class="three-column-section">
+            <!-- Column 1: User Buttons -->
+            <div class="button-column">
+                <a href="hi-isa.html" class="user-button hi-isa">Hi Isa</a>
+                <a href="hi-brian.html" class="user-button hi-brian">Hi Brian</a>
+                <a href="guest.html" class="user-button guest-button">Guest</a>
+            </div>
+
+            <!-- Column 2: ASCII Peach -->
+            <div class="peach-column">
+                <div class="ascii-art">      @@@@@@@@@@
+    @@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@
+ @@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@@@@@@@@@@@@@
+ @@@@@@@@@@@@@@@@@@@@
+ @@@@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@
+  @@@@@@@@@@@@@@@@@@
+   @@@@@@@@@@@@@@@@
+    @@@@@@@@@@@@@@
+     @@@@@@@@@@@@
+      @@@@@@@@@@
+       @@@@@@@@
+        @@@@@@
+         @@@@
+          @@</div>
+                <div class="peach-caption">hey peaches 🍑</div>
+            </div>
+
+            <!-- Column 3: Web Form Links -->
+            <div class="links-column">
+                <a href="maintenance-request.html" class="form-link">Maintenance Request</a>
+                <a href="schedule.html" class="form-link">Schedule</a>
+                <a href="ticket.html" class="form-link">Ticket</a>
+            </div>
+        </div>
+
+        <!-- Featured Articles Section -->
+        <div class="featured-section">
+            <h2 class="section-title">Featured Articles</h2>
+
+            <!-- Personal Dashboard Article -->
+            <div class="article-card">
+                <h3 class="article-title">Personal Command Center</h3>
+                <p class="article-description">
+                    A sleek, modern dashboard designed for productivity and organization.
+                    Track your tasks, monitor your progress, check the weather, and manage your daily goals
+                    all in one beautiful, dark-themed interface. Features include real-time clock,
+                    task management, weather updates, mini calendar, and customizable quick links.
+                </p>
+                <a href="personal-dashboard.html" class="article-link">View Dashboard →</a>
+            </div>
+
+            <!-- Empirical Luxe Article -->
+            <div class="article-card">
+                <h3 class="article-title">Empirical Luxe: A Visual Analysis</h3>
+                <p class="article-description">
+                    Explore the intersection of scientific methodology and sensory indulgence.
+                    This comprehensive thematic analysis examines the aesthetic philosophy where
+                    botanical specimens meet luxury design, clinical precision meets romantic decay,
+                    and vintage ephemera merges with contemporary maximalism. Discover the visual
+                    language of "Empirical Opulence" across disciplines.
+                </p>
+                <a href="emperical-luxe.html" class="article-link">Read Analysis →</a>
+            </div>
+        </div>
     </div>
+
     <footer>
-        © 2025 Hey Peaches
+        Version 1 - in development
     </footer>
 </body>
 </html>
