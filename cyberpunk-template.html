@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyberpunk Template</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: #00ff9f;
+            font-family: 'Courier New', monospace;
+            min-height: 100vh;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+        }
+
+        /* Persistent Menu Bar */
+        .menu-bar {
+            position: sticky;
+            top: 0;
+            background: linear-gradient(90deg, #1a0033 0%, #330066 50%, #1a0033 100%);
+            border-bottom: 3px solid #ff00ff;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(255, 0, 255, 0.5);
+            z-index: 1000;
+        }
+
+        .menu-bar .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+            letter-spacing: 3px;
+        }
+
+        .menu-nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        .menu-nav a {
+            color: #ff00ff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 16px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 5px #ff00ff;
+        }
+
+        .menu-nav a:hover {
+            border: 2px solid #ff00ff;
+            background-color: rgba(255, 0, 255, 0.1);
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+        }
+
+        /* Main Grid Container */
+        .main-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            grid-template-rows: auto 1fr;
+            grid-template-areas:
+                "header header"
+                "sidebar content";
+            gap: 20px;
+            padding: 20px;
+            min-height: calc(100vh - 120px);
+        }
+
+        /* Header Area */
+        .header {
+            grid-area: header;
+            background: linear-gradient(135deg, #330066 0%, #00ccff 100%);
+            padding: 40px;
+            border: 3px solid #00ffff;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 48px;
+            color: #ffffff;
+            text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
+            letter-spacing: 5px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 18px;
+            color: #00ff9f;
+            text-shadow: 0 0 5px #00ff9f;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            grid-area: sidebar;
+            background-color: #1a001a;
+            border: 2px solid #ff00ff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .sidebar h2 {
+            color: #00ffff;
+            font-size: 22px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #00ffff;
+            border-bottom: 2px solid #00ffff;
+            padding-bottom: 10px;
+        }
+
+        .sidebar nav {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .sidebar a {
+            color: #ff00ff;
+            text-decoration: none;
+            padding: 12px;
+            background-color: rgba(255, 0, 255, 0.1);
+            border: 2px solid #ff00ff;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .sidebar a:hover {
+            background-color: rgba(255, 0, 255, 0.3);
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.6);
+            transform: translateX(5px);
+        }
+
+        .sidebar a::before {
+            content: "▸ ";
+            color: #00ff9f;
+        }
+
+        /* Content Area */
+        .content {
+            grid-area: content;
+            background-color: #0d0d0d;
+            border: 2px solid #00ff9f;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0, 255, 159, 0.2);
+            display: grid;
+            gap: 30px;
+            align-content: space-between;
+        }
+
+        .content h2 {
+            color: #00ffff;
+            font-size: 32px;
+            text-shadow: 0 0 10px #00ffff;
+            margin-bottom: 15px;
+        }
+
+        .content p {
+            color: #cccccc;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .content-section {
+            background: linear-gradient(135deg, rgba(51, 0, 102, 0.3) 0%, rgba(0, 204, 255, 0.1) 100%);
+            padding: 25px;
+            border: 2px solid #ff00ff;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.2);
+        }
+
+        .content-section:hover {
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+
+        /* Footer */
+        .footer {
+            grid-area: footer;
+            background: linear-gradient(90deg, #1a0033 0%, #003333 50%, #1a0033 100%);
+            border-top: 3px solid #00ffff;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 -4px 20px rgba(0, 255, 255, 0.3);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer p {
+            color: #00ff9f;
+            font-size: 14px;
+            text-shadow: 0 0 5px #00ff9f;
+        }
+
+        .footer a {
+            color: #ff00ff;
+            text-decoration: none;
+            font-weight: bold;
+            text-shadow: 0 0 5px #ff00ff;
+        }
+
+        .footer a:hover {
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff;
+        }
+
+        /* Glitch Effect for Headers */
+        @keyframes glitch {
+            0% {
+                text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+            }
+            25% {
+                text-shadow: -2px 0 10px #00ffff, 2px 0 20px #ff00ff;
+            }
+            50% {
+                text-shadow: 2px 0 10px #ff00ff, -2px 0 20px #00ffff;
+            }
+            75% {
+                text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+            }
+            100% {
+                text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+            }
+        }
+
+        .header h1:hover {
+            animation: glitch 0.3s infinite;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .main-container {
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "header"
+                    "sidebar"
+                    "content";
+            }
+
+            .sidebar {
+                justify-content: flex-start;
+            }
+
+            .menu-nav {
+                gap: 15px;
+            }
+
+            .menu-nav a {
+                font-size: 14px;
+                padding: 6px 12px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .menu-bar {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .header h1 {
+                font-size: 32px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .footer {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Persistent Menu Bar -->
+    <div class="menu-bar">
+        <div class="logo">CYBERPUNK</div>
+        <nav class="menu-nav">
+            <a href="index.html">Home</a>
+            <a href="personal-dashboard.html">Dashboard</a>
+            <a href="emperical-luxe.html">Luxe</a>
+            <a href="hi-brian.html">Brian</a>
+        </nav>
+    </div>
+
+    <!-- Main Grid Container -->
+    <div class="main-container">
+        <!-- Header Area -->
+        <header class="header">
+            <h1>NEON GRID</h1>
+            <p>Welcome to the future of web design</p>
+        </header>
+
+        <!-- Sidebar with Page Index -->
+        <aside class="sidebar">
+            <h2>Navigation</h2>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="personal-dashboard.html">Personal Dashboard</a>
+                <a href="emperical-luxe.html">Empirical Luxe</a>
+                <a href="hi-brian.html">Hi Brian</a>
+                <a href="cyberpunk-template.html">Cyberpunk Template</a>
+            </nav>
+        </aside>
+
+        <!-- Content Area -->
+        <main class="content">
+            <div class="content-section">
+                <h2>Section One</h2>
+                <p>
+                    This is the first content section with cyberpunk styling. The grid layout uses
+                    space-between and space-around for optimal spacing and alignment. The neon colors
+                    create an immersive futuristic experience.
+                </p>
+            </div>
+
+            <div class="content-section">
+                <h2>Section Two</h2>
+                <p>
+                    This template features a persistent menu bar that stays at the top as you scroll,
+                    a sidebar navigation with links to all pages, and a responsive grid layout that
+                    adapts to different screen sizes.
+                </p>
+            </div>
+
+            <div class="content-section">
+                <h2>Section Three</h2>
+                <p>
+                    The cyberpunk color scheme includes neon pink (#ff00ff), cyan (#00ffff), and
+                    green (#00ff9f) against dark backgrounds. Hover effects and glowing shadows
+                    enhance the futuristic aesthetic.
+                </p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Cyberpunk Design</p>
+        <p>Built with CSS Grid & Cyberpunk Aesthetics</p>
+        <a href="#top">Back to Top ↑</a>
+    </footer>
+</body>
+</html>
