@@ -45,23 +45,18 @@ flowchart LR
     classDef verification fill:#fef6ff,stroke:#c44dff
     classDef delight fill:#fffbe6,stroke:#ffd000
 
-Blueprint Structure
+## Blueprint Structure
 
-Experience Layer
+### Experience Layer
 
 Awareness
-
 Consideration
-
 Engagement
-
 Fulfillment
-
 Aftercare
-
 Loyalty Loop
 
-Interaction Layer
+### Interaction Layer
 
 Website / landing pages
 
