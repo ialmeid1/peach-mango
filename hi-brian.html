@@ -109,9 +109,121 @@
             background-color: darkgreen;
             transform: scale(1.05);
         }
+
+        /* Cloud Index Navigation */
+        .cloud-index {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, #fff9f0 0%, #ffffff 100%);
+            padding: 25px 20px;
+            border-radius: 30px;
+            box-shadow: 0 8px 32px rgba(255, 107, 53, 0.2),
+                        0 4px 16px rgba(255, 179, 102, 0.3),
+                        inset 0 -2px 8px rgba(255, 179, 102, 0.1);
+            border: 2px solid #ffb366;
+            z-index: 1000;
+            max-width: 200px;
+            transition: all 0.3s ease;
+        }
+
+        .cloud-index:hover {
+            transform: translateY(-50%) scale(1.05);
+            box-shadow: 0 12px 40px rgba(255, 107, 53, 0.3),
+                        0 6px 20px rgba(255, 179, 102, 0.4);
+        }
+
+        .cloud-index-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #ff6b35;
+            text-align: center;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #ffb366;
+            padding-bottom: 10px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .cloud-index-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .cloud-index-link {
+            display: block;
+            padding: 8px 12px;
+            background-color: #ff6b35;
+            color: white;
+            text-decoration: none;
+            border-radius: 15px;
+            font-size: 13px;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(255, 107, 53, 0.3);
+            font-family: 'Courier New', monospace;
+        }
+
+        .cloud-index-link:hover {
+            background-color: #ff5520;
+            transform: translateX(-5px);
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.5);
+        }
+
+        .cloud-index-link.active {
+            background-color: #ffb366;
+            color: #333;
+        }
+
+        @media (max-width: 968px) {
+            .cloud-index {
+                top: auto;
+                bottom: 20px;
+                right: 10px;
+                transform: none;
+                max-width: 160px;
+                padding: 20px 15px;
+            }
+
+            .cloud-index:hover {
+                transform: scale(1.05);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .cloud-index {
+                max-width: 140px;
+                padding: 15px 10px;
+            }
+
+            .cloud-index-title {
+                font-size: 14px;
+            }
+
+            .cloud-index-link {
+                font-size: 11px;
+                padding: 6px 10px;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Cloud Index Navigation -->
+    <div class="cloud-index">
+        <div class="cloud-index-title">Pages</div>
+        <div class="cloud-index-links">
+            <a href="index.html" class="cloud-index-link">🍑 Home</a>
+            <a href="personal-dashboard.html" class="cloud-index-link">📊 Dashboard</a>
+            <a href="hi-brian.html" class="cloud-index-link active">🎮 Hi Brian</a>
+            <a href="emperical-luxe.html" class="cloud-index-link">✨ Empirical Luxe</a>
+        </div>
+    </div>
+
+
     <div class="container">
         <h1>Hi Brian!</h1>
 
