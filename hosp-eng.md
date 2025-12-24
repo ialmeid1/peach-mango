@@ -1,3 +1,6 @@
+
+🎉🎉🎉🎉🎉🎉🎉🎉
+
  **reference sheet** that captures everything we’ve built: the layered architecture, the motifs, and the canonical contract patterns. It’s meant to be something you can drop into your IndeX, dashboards, or codex without modification.
 
 ---
