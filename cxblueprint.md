@@ -76,7 +76,7 @@ Self-service portals
 
 Automations
 
-Workflow Layer
+### Workflow Layer
 
 Agent assignment
 
@@ -90,7 +90,7 @@ Fallback behaviors
 
 Automation hooks
 
-Data Layer
+### Data Layer
 
 Profile updates
 
@@ -106,11 +106,11 @@ Workflow timestamps
 
 Outcome metrics
 
-Combined Blueprint Pattern
+## Combined Blueprint Pattern
 
 [Stage] → [Touchpoint] → [Agent Action] → [Data Capture] → [Motif]
 
-Example Mappings
+## Example Mappings
 
 Consideration → Website FAQ → Knowledge Agent updates content → Search analytics → Clarity
 
